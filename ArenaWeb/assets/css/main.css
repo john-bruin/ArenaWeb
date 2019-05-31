@@ -1,0 +1,41 @@
+﻿body {
+    font-family: CommodoreServer;
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+@font-face {
+    font-family: 'CommodoreServer';
+    src: url('../fonts/CommodoreServer.ttf');
+}
+
+#energyPlayer1 {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+#energyPlayer2 {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+#mainCanvas {
+    position: absolute;
+}
+
+#content {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    margin-left: -300px;
+    margin-top: -195px;
+    width: 600px;
+    height: 390px;
+
+    background-image: url('../images/background1.png');
+    background-size: 100% 100%;
+}
