@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="assets/css/virtualjoystick.css" />
     <script>
         var player = "1";
+        var WebSocketServerURL = '<%=System.Configuration.ConfigurationManager.AppSettings("WebSocketServerURL").ToString() %>';
     </script>
     <script src="assets/js/hand.minified.js"></script>
     <script src="assets/js/Collection.js"></script>

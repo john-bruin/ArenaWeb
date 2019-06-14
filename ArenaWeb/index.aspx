@@ -14,6 +14,9 @@
     <script src="assets/js/Main.js"></script>
     <script src="assets/js/Player.js"></script>
     <script src="assets/js/Bullet.js"></script>
+    <script>
+        var WebSocketServerURL = '<%=System.Configuration.ConfigurationManager.AppSettings("WebSocketServerURL").ToString() %>';
+    </script>
 </head>
 <body oncontextmenu="return false;">
     <div id="content"></div>

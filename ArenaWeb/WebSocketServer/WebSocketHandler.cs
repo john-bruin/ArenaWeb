@@ -1,5 +1,4 @@
 ﻿using Microsoft.Web.WebSockets;
-using System;
 
 namespace ArenaWeb
 {

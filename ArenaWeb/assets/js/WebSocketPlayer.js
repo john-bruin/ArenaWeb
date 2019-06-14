@@ -1,15 +1,12 @@
-﻿var ws,
-    // Note: There is also wss:// for secure WebSocket connection
-    url = 'wss://arenaweb.azurewebsites.net/WebSocketServer/WebSocketServer.ashx',
-    //url = 'ws://localhost:17255/WebSocketServer/WebSocketServer.ashx',
-    tests = {
+﻿var ws;
+var tests = {
         websocket: 'WebSocket' in window
     };
 
 function setupWebSocket() {
     // Instantiate a new WebSocket, passing in server url.
     // A handshake is made and a connection is established.
-    ws = new WebSocket(url);
+    ws = new WebSocket(WebSocketServerURL);
     
     // Captures errors
     ws.onerror = function (e) {
