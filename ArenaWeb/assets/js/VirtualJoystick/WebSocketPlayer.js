@@ -15,23 +15,19 @@ function setupWebSocket() {
 
     // When connection opens
     ws.onopen = function () {
-        //console.log("Client connected");
-        ws.send("Player " + player + " connected");
-    };
+        console.log("Client connected");
+        ws.send("J" + player);
 
-    // Captures messages from the server.
-    //ws.onmessage = function (e) {
-    //    var message = e.data;
-    //    console.log(message + ' received');
-    //};
+    };
 
     // When connection closes
     ws.onclose = function () {
         console.log('Closed connection');
+        window.location = "https://www.codeandcomedy.nl/";
     };
 }
 
-function init() {
+function initWS() {
     // WebSocket support test
     if (tests.websocket) {
         // Setting up the WebSocket
@@ -43,4 +39,4 @@ function init() {
 }
 
 // Run init function when DOM  content has been loaded
-document.addEventListener('DOMContentLoaded', init, false);
+document.addEventListener('DOMContentLoaded', initWS, false);

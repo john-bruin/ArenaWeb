@@ -14,13 +14,13 @@
 #energyPlayer1 {
     position: absolute;
     left: 0;
-    bottom: 0;
+    top: 0;
 }
 
 #energyPlayer2 {
     position: absolute;
     right: 0;
-    bottom: 0;
+    top: 0;
 }
 
 #mainCanvas {
@@ -35,7 +35,243 @@
     margin-top: -195px;
     width: 600px;
     height: 390px;
-
-    background-image: url('../images/background1.png');
     background-size: 100% 100%;
+}
+
+#QRPlayer1, #QRPlayer2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    margin-top: 10px;
+    background-size: 100% 100%;
+    border-width: 5px;
+    border-style: solid;
+    -webkit-animation: color_change .1s infinite alternate;
+    -moz-animation: color_change .1s infinite alternate;
+    -ms-animation: color_change .1s infinite alternate;
+    -o-animation: color_change .1s infinite alternate;
+    animation: color_change .1s infinite alternate;
+}
+#QRPlayer1 {
+    margin-left: -235px;
+    background-image: url('../images/QRplayer1.png');
+}
+#QRPlayer2 {
+    margin-left: 80px;
+    background-image: url('../images/QRplayer2.png');
+}
+
+.backgroundIntro {
+    background-image: url('../images/backgroundIntro.png');
+}
+
+.background1 {
+    background-image: url('../images/background1.png');
+}
+
+.background2 {
+    background-image: url('../images/background2.png');
+}
+
+#logo {
+    position: absolute;
+    left: 50%;
+    width: 430px;
+    height: 148px;
+    margin-left: -215px;
+    background-image: url('../images/logo.png');
+}
+
+.show {
+    -webkit-animation: show_logo 2s ease forwards;
+    -moz-animation: show_logo 2s ease forwards;
+    -ms-animation: show_logo 2s ease forwards;
+    -o-animation: show_logo 2s ease forwards;
+    animation: show_logo 2s ease forwards;
+}
+
+.hide {
+    -webkit-animation: hide_logo 2s ease forwards;
+    -moz-animation: hide_logo 2s ease forwards;
+    -ms-animation: hide_logo 2s ease forwards;
+    -o-animation: hide_logo 2s ease forwards;
+    animation: hide_logo 2s ease forwards;
+}
+
+#message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: lightgray;
+    width: 500px;
+    margin-left: -250px;
+    margin-top: -20px;
+    text-align: center;
+    -webkit-animation: color_change .1s infinite alternate;
+    -moz-animation: color_change .1s infinite alternate;
+    -ms-animation: color_change .1s infinite alternate;
+    -o-animation: color_change .1s infinite alternate;
+    animation: color_change .1s infinite alternate;
+}
+
+@-webkit-keyframes color_change {
+    from {
+        color: white;
+        border-color: white;
+    }
+
+    to {
+        color: #867ADE;
+        border-color: #867ADbE;
+    }
+}
+
+@-moz-keyframes color_change {
+    from {
+        color: white;
+        border-color: white;
+    }
+
+    to {
+        color: #867ADE;
+        border-color: #867ADbE;
+    }
+}
+
+@-ms-keyframes color_change {
+    from {
+        color: white;
+        border-color: white;
+    }
+
+    to {
+        color: #867ADE;
+        border-color: #867ADbE;
+    }
+}
+
+@-o-keyframes color_change {
+    from {
+        color: white;
+        border-color: white;
+    }
+
+    to {
+        color: #867ADE;
+        border-color: #867ADbE;
+    }
+}
+
+@keyframes color_change {
+    from {
+        color: white;
+        border-color: white;
+    }
+
+    to {
+        color: #867ADE;
+        border-color: #867ADbE;
+    }
+}
+
+@-webkit-keyframes show_logo {
+    from {
+        top: -200px;
+    }
+
+    to {
+        top: -10px;
+    }
+}
+
+@-moz-keyframes show_logo {
+    from {
+        top: -200px;
+    }
+
+    to {
+        top: -10px;
+    }
+}
+
+@-ms-keyframes show_logo {
+    from {
+        top: -200px;
+    }
+
+    to {
+        top: -10px;
+    }
+}
+
+@-o-keyframes show_logo {
+    from {
+        top: -200px;
+    }
+
+    to {
+        top: -10px;
+    }
+}
+
+@keyframes show_logo {
+    from {
+        top: -200px;
+    }
+
+    to {
+        top: -10px;
+    }
+}
+
+@-webkit-keyframes hide_logo {
+    to {
+        top: -200px;
+    }
+
+    from {
+        top: -10px;
+    }
+}
+
+@-moz-keyframes hide_logo {
+    to {
+        top: -200px;
+    }
+
+    from {
+        top: -10px;
+    }
+}
+
+@-ms-keyframes hide_logo {
+    to {
+        top: -200px;
+    }
+
+    from {
+        top: -10px;
+    }
+}
+
+@-o-keyframes hide_logo {
+    to {
+        top: -200px;
+    }
+
+    from {
+        top: -10px;
+    }
+}
+
+@keyframes hide_logo {
+    to {
+        top: -200px;
+    }
+
+    from {
+        top: -10px;
+    }
 }

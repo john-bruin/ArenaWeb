@@ -8,15 +8,18 @@
         var player = "1";
         var WebSocketServerURL = '<%=System.Configuration.ConfigurationManager.AppSettings("WebSocketServerURL").ToString() %>';
     </script>
-    <script src="assets/js/hand.minified.js"></script>
-    <script src="assets/js/Collection.js"></script>
-    <script src="assets/js/Vector2.js"></script>
-    <script src="assets/js/TouchControl.js"></script>
-    <script src="assets/js/WebSocketPlayer.js"></script>
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+    <script src="assets/js/VirtualJoystick/hand.minified.js"></script>
+    <script src="assets/js/VirtualJoystick/Collection.js"></script>
+    <script src="assets/js/VirtualJoystick/Vector2.js"></script>
+    <script src="assets/js/VirtualJoystick/TouchControl.js"></script>
+    <script src="assets/js/VirtualJoystick/WebSocketPlayer.js"></script>
+    <script src="assets/js/VirtualJoystick/Orientation.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="container">        
         <canvas id="canvasJoystick"></canvas>
     </div>
+    <div id="rotateDevice"></div>
 </body>
 </html>

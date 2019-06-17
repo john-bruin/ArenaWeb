@@ -16,26 +16,35 @@
     var float = 2;
     var float_add = -.25;
 
-    var _playing = true;
+    var _playing = false;
     var _isHit = false;
-    var _energy;
+    var _energy = 0;
 
     this.Init = function () {
         _energy = 100;
-        $("#energyPlayer" + id.toString()).html(_energy.toString());
+        $("#energyPlayer" + id.toString()).html("ENERGY P" + id.toString() + ":" + _energy.toString() + "%");
+        _playing = true;
     };
 
     this.IsHit = function (strength) {
+        if (!_playing) {
+            return;
+        }
+
         HitCounter = 5;
         _isHit = true;
-        _energy = _energy - strength;
-        $("#energyPlayer" + id.toString()).html(_energy.toString());
+        _energy = _energy - strength;        
         if (_energy <= 0) {
-            $("#energyPlayer" + id.toString()).html(0);
-            $("#message").html("PLAYER " + id.toString() + " DIED!");
+            _energy = 0;            
             _playing = false;
+            GameOver(id);
         }
+        $("#energyPlayer" + id.toString()).html("ENERGY P" + id.toString() + ":" + _energy.toString() + "%");
     };
+
+    this.Stop = function () {
+        _playing = false;
+    }
 
     this.IsPlaying = function () {
         return _playing;

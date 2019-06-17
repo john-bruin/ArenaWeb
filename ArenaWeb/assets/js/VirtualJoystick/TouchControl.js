@@ -46,6 +46,7 @@ var canvas,
     leftVector = new Vector2(0, 0);
 
 var touches; // collections of pointers
+var timer = 0;
 
 document.addEventListener("DOMContentLoaded", init);
 
@@ -78,62 +79,56 @@ function resetCanvas(e) {
 function draw() {
     c.clearRect(0, 0, canvas.width, canvas.height);
 
+    if (timer > 300) {
+        timer = 0;
+        ws.send("H" + player);
+    }
+    timer++;
+
     touches.forEach(function (touch) {
         if (touch.identifier === leftPointerID) {
             c.beginPath();
-            c.strokeStyle = "cyan";
+            c.strokeStyle = "#867ADE";
             c.lineWidth = 6;
             c.arc(leftPointerStartPos.x, leftPointerStartPos.y, 40, 0, Math.PI * 2, true);
             c.stroke();
             c.beginPath();
-            c.strokeStyle = "cyan";
+            c.strokeStyle = "#867ADE";
             c.lineWidth = 2;
             c.arc(leftPointerStartPos.x, leftPointerStartPos.y, 60, 0, Math.PI * 2, true);
             c.stroke();
             c.beginPath();
-            c.strokeStyle = "cyan";
+            c.strokeStyle = "#867ADE";
             c.arc(leftPointerPos.x, leftPointerPos.y, 40, 0, Math.PI * 2, true);
             c.stroke();
-
-        } else {
-
+        }
+        else {
             c.beginPath();
-
-            //c.fillStyle = "white";
-            //c.fillText("type : " + touch.type + " id : " + touch.identifier + " x:" + touch.x + " y:" + touch.y, touch.x + 30, touch.y - 30);
-
-            c.beginPath();
-            c.strokeStyle = "red";
+            c.strokeStyle = "#924A40";
             c.lineWidth = "6";
             c.arc(touch.x, touch.y, 40, 0, Math.PI * 2, true);
             c.stroke();
         }
     });
-
     requestAnimFrame(draw);
 }
 
 function shoot() {
-    //console.log("S" + player);
     ws.send("S" + player);
 }
 
 function move() {
     var threshold = 1;
     if (leftVector.x < -threshold) {
-        //console.log("Left");
         ws.send("L" + player);
     }
     if (leftVector.x > threshold) {
-        //console.log("Right");
         ws.send("R" + player);
     }
     if (leftVector.y < -threshold) {
-        //console.log("Up");
         ws.send("U" + player);
     }
     if (leftVector.y > threshold) {
-        //console.log("Down");
         ws.send("D" + player);
     }
 }
@@ -182,10 +177,8 @@ function onPointerUp(e) {
     if (leftPointerID === e.pointerId) {
         leftPointerID = -1;
         leftVector.reset(0, 0);
-
     }
     leftVector.reset(0, 0);
-
     touches.remove(e.pointerId);
 }
 

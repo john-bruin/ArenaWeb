@@ -9,11 +9,22 @@ namespace ArenaWeb
         /// </summary>
         private static WebSocketCollection _clients = new WebSocketCollection();
 
+        private static string _server;
+        private static string _player1;
+        private static string _player2;
+
         /// <summary>
         /// When a client connection opens.
         /// </summary>
         public override void OnOpen()
         {
+            // There is no server yet...
+            if (_clients.Count > 1 && string.IsNullOrEmpty(_server))
+            {
+                _clients.Clear();
+                this.Close();
+            }
+
             if (_clients.Count < 3)
             {
                 // Add client.
@@ -31,6 +42,28 @@ namespace ArenaWeb
         /// <param name="message"></param>
         public override void OnMessage(string message)
         {
+            if (message == "J1")
+            {
+                _player1 = this.WebSocketContext.SecWebSocketKey;
+            }
+            else if (message == "J2")
+            {
+                _player2 = this.WebSocketContext.SecWebSocketKey;
+            }
+            else if (message == "SERVER")
+            {
+                _server = this.WebSocketContext.SecWebSocketKey;
+            }
+            else if (message == "GAME OVER")
+            {
+                foreach (var client in _clients)
+                {
+                    if (client.WebSocketContext.SecWebSocketKey != _server)
+                    {
+                        client.Close();
+                    }
+                }
+            }
             // Broadcast message to all connected clients.
             _clients.Broadcast(message);
         }

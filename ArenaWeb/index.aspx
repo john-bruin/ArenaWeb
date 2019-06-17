@@ -19,10 +19,14 @@
     </script>
 </head>
 <body oncontextmenu="return false;">
-    <div id="content"></div>
-    <div id="energyPlayer1">100</div>
-    <div id="energyPlayer2">100</div>
-    <div id="message">NOW PLAYING</div>
+    <div id="content" class="background1">
+        <div id="energyPlayer1"></div>   
+        <div id="energyPlayer2"></div>
+        <div id="QRPlayer1"></div>
+        <div id="QRPlayer2"></div>
+        <div id="message">WELCOME TO ARENA</div>
+        <div id="logo" class="show"></div>
+    </div>
     <canvas id="mainCanvas"></canvas>
 </body>
 </html>

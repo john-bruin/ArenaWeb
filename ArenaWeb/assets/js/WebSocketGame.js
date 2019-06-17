@@ -15,17 +15,26 @@ function setupWebSocket() {
 
     // When connection opens
     ws.onopen = function () {
-        //console.log('Server connected');
-        //ws.send('Server connected');
+        console.log('Server connected');
+        ws.send("SERVER");
     };
 
     // Captures messages from the server.
     ws.onmessage = function (e) {
-        //console.log(e.data + ' received');
+        if (e.data === "SERVER" || e.data == "GAME OVER") {
+            return;
+        }
+
         var player = e.data.slice(1, 2);
         var direction = e.data.slice(0, 1);
         if (direction === "S") {
             Shoot(player);
+        }
+        else if (direction === "J") {
+            Join(player);
+        }
+        else if (direction === "H") {
+            HeartBeat(player);
         }
         else {
             Move(player, direction);
@@ -38,7 +47,7 @@ function setupWebSocket() {
     };
 }
 
-function init() {
+function initWS() {
     // WebSocket support test
     if (tests.websocket) {
         // Setting up the WebSocket
@@ -50,4 +59,4 @@ function init() {
 }
 
 // Run init function when DOM  content has been loaded
-document.addEventListener('DOMContentLoaded', init, false);
+document.addEventListener('DOMContentLoaded', initWS, false);
