@@ -20,7 +20,7 @@ var player2Idle = 0;
 var isIntroPlaying = true;
 
 function HeartBeat(player) {
-    console.log("Heartbeat player " + player);
+    //console.log("Heartbeat player " + player);
     if (player === "1") {
         player1Idle = 0;
     }
